@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI APAC · B2B Marketing Plan</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { padding-top: 56px }
+  .hero { min-height: calc(100vh - 56px); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 75%);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 80px var(--px) 0 }
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink); font-weight: 700; display: flex; align-items: center; gap: 12px; margin-bottom: 32px }
+  .hero-dot { width: 9px; height: 9px; background: var(--yellow) }
+  .hero-title { font-family: var(--syne); font-weight: 800; font-size: clamp(64px, 11vw, 150px); line-height: .92; letter-spacing: -.04em; color: var(--ink) }
+  .hero-title em { color: var(--yellow) }
+  .hero-sub { margin-top: 36px; max-width: 620px; font-size: clamp(16px, 2vw, 20px); line-height: 1.55; color: var(--ink); font-weight: 400 }
+  .hero-stats { position: relative; z-index: 2; padding: 36px var(--px) 0; border-top: 1px solid var(--rule); margin-top: 80px }
+  .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0 }
+  .stat { padding: 28px 32px 36px 0; border-right: 1px solid var(--rule) }
+  .stat:not(:first-child) { padding-left: 32px }
+  .stat:last-child { border-right: none }
+  .stat-num { font-family: var(--syne); font-weight: 800; font-size: clamp(40px, 5vw, 72px); line-height: 1; letter-spacing: -.03em; color: var(--ink) }
+  .stat-num em { color: var(--yellow); font-style: normal }
+  .stat-label { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); margin-top: 8px; font-weight: 700 }
+  @media (max-width:768px) { .stats-grid { grid-template-columns: 1fr 1fr } .stat { border-bottom: 1px solid var(--rule) } .stat:nth-child(2n) { border-right: none } }
+
+  .page-nav { padding: 100px 0 }
+  .page-nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); border: 1px solid var(--rule) }
+  .page-card { background: var(--white); padding: 52px 48px; display: flex; flex-direction: column; gap: 22px; transition: background .2s }
+  .page-card:hover { background: var(--surface) }
+  .page-card:hover .pc-arrow { color: var(--yellow); transform: translateX(6px) }
+  .pc-part { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--yellow); font-weight: 700 }
+  .pc-title { font-family: var(--syne); font-weight: 800; font-size: clamp(32px,4vw,52px); letter-spacing: -.03em; line-height: 1.05; color: var(--ink) }
+  .pc-desc { font-size: 16px; line-height: 1.6; color: var(--ink); font-weight: 400; max-width: 420px }
+  .pc-list { list-style: none; border-top: 1px solid var(--rule); margin-top: 4px }
+  .pc-list li { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); padding: 11px 0; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 10px; font-weight: 700 }
+  .pc-list li::before { content: ""; width: 14px; height: 6px; background: var(--yellow); flex: none }
+  .pc-arrow { font-family: var(--syne); font-size: 32px; font-weight: 400; color: var(--ink); transition: all .2s; align-self: flex-start; margin-top: auto }
+  @media (max-width:768px) { .page-nav-grid { grid-template-columns: 1fr } }
+
+  .thesis-layout { display: grid; grid-template-columns: 220px 1fr; gap: 80px; align-items: start }
+  .thesis-aside { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--yellow); padding-top: 8px; font-weight: 700 }
+  .thesis-h { font-family: var(--syne); font-weight: 800; font-size: clamp(28px,3.4vw,50px); line-height: 1.06; letter-spacing: -.03em; color: var(--ink); margin-bottom: 36px }
+  .thesis-h em { color: var(--yellow); font-style: normal }
+  .thesis-point { padding: 26px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 48px 1fr; gap: 22px; align-items: start }
+  .tp-n { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--yellow); padding-top: 4px; font-weight: 700 }
+  .tp-t { font-size: 16px; line-height: 1.7; color: var(--ink); font-weight: 400 }
+  .tp-t strong { font-weight: 700 }
+  @media (max-width:768px) { .thesis-layout { grid-template-columns: 1fr; gap: 28px } }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nb-nav">
+  <div class="nb-nav-brand">OpenAI<span class="nb-nav-ctx">APAC · B2B Marketing Plan</span></div>
+  <div class="nb-nav-links">
+    <a href="index.html" class="active">Overview</a>
+    <a href="Framework.html">Framework</a>
+    <a href="Strategy.html">Strategy</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow"><span class="hero-dot"></span>B2B Marketing Lead, APAC · Singapore · Jason Singh</div>
+    <h1 class="hero-title">Make the<br/>market. <em>First.</em></h1>
+    <p class="hero-sub">Full-stack B2B marketing to turn OpenAI's APAC momentum into enterprise adoption, pipeline, and trust. Two outcomes. Two motions. Four bets. Five engines.</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stats-grid">
+      <div class="stat reveal d1"><div class="stat-num">2</div><div class="stat-label">Outcomes</div></div>
+      <div class="stat reveal d2"><div class="stat-num">4</div><div class="stat-label">Signature bets</div></div>
+      <div class="stat reveal d3"><div class="stat-num">5</div><div class="stat-label">B2B engines</div></div>
+      <div class="stat reveal" style="transition-delay:.35s"><div class="stat-num">5</div><div class="stat-label">Buyer personas</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-nav">
+  <div class="wrap">
+    <div class="page-nav-grid">
+      <a href="Framework.html" class="page-card reveal">
+        <div class="pc-part">Part I</div>
+        <div class="pc-title">The Framework</div>
+        <p class="pc-desc">The APAC reality, the position, the buyer, and the operating model everything ladders to.</p>
+        <ul class="pc-list">
+          <li>Considerations for APAC GTM</li>
+          <li>Value proposition &amp; positioning</li>
+          <li>Audiences &amp; the customer journey</li>
+          <li>The operating framework</li>
+        </ul>
+        <div class="pc-arrow">→</div>
+      </a>
+      <a href="Strategy.html" class="page-card reveal d1">
+        <div class="pc-part">Part II</div>
+        <div class="pc-title">The Strategy</div>
+        <p class="pc-desc">The four bets, the five engines, the 12-month build, and how every number connects.</p>
+        <ul class="pc-list">
+          <li>The four bets</li>
+          <li>The five engines · partner deep-dive</li>
+          <li>12-month build</li>
+          <li>Measurement framework</li>
+        </ul>
+        <div class="pc-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="nb-section surface">
+  <div class="wrap">
+    <div class="thesis-layout">
+      <div class="thesis-aside reveal">The core argument</div>
+      <div>
+        <h2 class="thesis-h reveal">There is no AI leader in APAC <em>yet.</em> Four moves decide whether OpenAI becomes it.</h2>
+        <div>
+          <div class="thesis-point reveal d1">
+            <div class="tp-n">01</div>
+            <div class="tp-t"><strong>Make markets, move first.</strong> No vendor owns APAC and the field is genuinely open — competitors haven't formally landed at scale and open-weight is fragmented. That window won't stay open: vendors will start to lock up countries, verticals, personas, and partners. Land priority markets first — making markets beats fighting uphill as a late entrant.</div>
+          </div>
+          <div class="thesis-point reveal d2">
+            <div class="tp-n">02</div>
+            <div class="tp-t"><strong>Lead with trust.</strong> APAC buyers are more sovereignty-conscious and vendor-skeptical, and recent trust concerns will lengthen cycles. Trust, security, and sovereignty become the foundational narrative — and the work has to start now, not when the deal is on the table.</div>
+          </div>
+          <div class="thesis-point reveal d3">
+            <div class="tp-n">03</div>
+            <div class="tp-t"><strong>Win on local peer proof.</strong> Buyers no longer trust vendors or analysts — they trust their circle of peers. APAC needs many local, in-vertical, in-country proof points: narratives, speakers, data, advocacy. Peer proof sits at the center of the plan, not the periphery.</div>
+          </div>
+          <div class="thesis-point reveal d3">
+            <div class="tp-n">04</div>
+            <div class="tp-t"><strong>Sell outcomes, deliver value through partners.</strong> Enterprises are shifting from adoption to value — sharper still in price-sensitive APAC. Outcomes are the proof buyers need before they buy, and a strong partner ecosystem is how that value gets delivered at scale.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nb-pager">
+  <div class="wrap">
+    <div class="nb-pager-eyebrow">Read the plan</div>
+    <div class="nb-pager-grid">
+      <a href="Framework.html" class="nb-pager-cell">
+        <div class="nb-pager-dir">Part I →</div>
+        <div>
+          <div class="nb-pager-part">The Framework</div>
+          <div class="nb-pager-title">Reality, position<br/>&amp; operating model</div>
+        </div>
+      </a>
+      <a href="Strategy.html" class="nb-pager-cell next">
+        <div class="nb-pager-dir">Part II →</div>
+        <div>
+          <div class="nb-pager-part">The Strategy</div>
+          <div class="nb-pager-title">Bets, engines<br/>&amp; the build</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="nb-foot">
+  <div class="wrap">
+    <div class="nb-foot-inner">
+      <div class="nb-foot-col"><div class="nb-foot-label">Author</div><div class="nb-foot-val">Jason Singh</div></div>
+      <div class="nb-foot-col"><div class="nb-foot-label">Role</div><div class="nb-foot-val">B2B Marketing Lead · APAC</div></div>
+      <div class="nb-foot-col"><div class="nb-foot-label">Version</div><div class="nb-foot-val">June 2026 · Draft</div></div>
+    </div>
+    <div class="nb-foot-bottom">
+      <span style="font-family:var(--syne);font-weight:800;font-size:15px">OpenAI · APAC</span>
+      <span>2 Outcomes · 2 Motions · 4 Bets · 5 Engines</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  if (document.hidden) document.documentElement.classList.add('no-reveal');
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) document.documentElement.classList.remove('no-reveal') });
+  const prog = document.getElementById('progress');
+  function tick() { const h = document.documentElement; const max = h.scrollHeight - h.clientHeight; if (max > 0) prog.style.width = Math.min(1, h.scrollTop / max) * 100 + '%' }
+  document.addEventListener('scroll', tick, { passive: true }); tick();
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .08, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
